@@ -19,4 +19,35 @@ public class Event {
 		this.type = type;
 		this.host = host;
 	}
+
+	public long getStartTime() {
+		return startTime;
+	}
+
+	public long getEndTime() {
+		return endTime;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public String getHost() {
+		return host;
+	}
+
+	@Override
+	public String toString() {
+		return "Event{" +
+				"startTime=" + startTime +
+				", endTime=" + endTime +
+				", id='" + id + '\'' +
+				", type='" + type + '\'' +
+				", host='" + host + '\'' +
+				'}';
+	}
 }
