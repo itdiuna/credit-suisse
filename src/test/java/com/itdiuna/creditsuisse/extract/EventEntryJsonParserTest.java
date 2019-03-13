@@ -1,12 +1,15 @@
 package com.itdiuna.creditsuisse.extract;
 
+import com.itdiuna.creditsuisse.transform.EventEntry;
+import com.itdiuna.creditsuisse.transform.EventEntryJsonParser;
+import com.itdiuna.creditsuisse.transform.StateType;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class EventEntryParserTest {
+public class EventEntryJsonParserTest {
 
-	EventEntryParser parser = new EventEntryParser();
+	EventEntryJsonParser parser = new EventEntryJsonParser();
 
 	@Test
 	public void parse() {

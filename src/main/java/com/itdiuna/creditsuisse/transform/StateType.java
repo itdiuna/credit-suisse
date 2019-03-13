@@ -1,4 +1,4 @@
-package com.itdiuna.creditsuisse.extract;
+package com.itdiuna.creditsuisse.transform;
 
 public enum StateType {
 
