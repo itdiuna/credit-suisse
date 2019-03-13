@@ -28,7 +28,7 @@ public class App {
 	public static void main(String[] args) {
 		App app = new App(args[0]);
 
-		ExecutorService executor = Executors.newCachedThreadPool();
+		ExecutorService executor = Executors.newWorkStealingPool();
 		app.etl(executor);
 		executor.shutdown();
 	}

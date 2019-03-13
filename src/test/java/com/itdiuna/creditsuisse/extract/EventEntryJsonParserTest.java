@@ -13,10 +13,12 @@ public class EventEntryJsonParserTest {
 
 	@Test
 	public void parse() {
-		String json = "{\"id\":\"scsmbstgra\", \"state\":\"STARTED\", \"type\":\"APPLICATION_LOG\", \"host\":\"" +
-				"12345\", \"timestamp\":1491377495212}";
+		EventEntryJson eventEntryJson = new EventEntryJson(
+				"{\"id\":\"scsmbstgra\", \"state\":\"STARTED\", \"type\":\"APPLICATION_LOG\", \"host\":\"" +
+				"12345\", \"timestamp\":1491377495212}"
+		);
 
-		EventEntry eventEntry = parser.parse(json);
+		EventEntry eventEntry = parser.parse(eventEntryJson);
 
 		assertEquals(
 				new EventEntry(
