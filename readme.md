@@ -1,9 +1,17 @@
 To build a package:
-"./gradlew build"
+
+```
+./gradlew build
+```
 
 To run the package:
-"java -jar build/libs/credit-suisse-all-1.0-SNAPSHOT.jar src/test/resources/original-example.log"
+
+```
+java -jar build/libs/credit-suisse-all-1.0-SNAPSHOT.jar src/test/resources/original-example.log"
+```
+
 where the last argument can be replaced with other log file.
+
 
 To do:
 * create unit tests to most classes
