@@ -30,5 +30,6 @@ public class EventEntryJsonFileExtractor implements AutoCloseable {
 	@Override
 	public void close() throws IOException {
 		reader.close();
+		logger.info("File closed");
 	}
 }

@@ -15,20 +15,26 @@ public class EventDatabaseLoader implements AutoCloseable {
 
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
-	public EventDatabaseLoader() {
-		try {
-			logger.info("Creating connection to database");
-			connection = DriverManager.getConnection("jdbc:hsqldb:file:db");
-			logger.info("Connection established");
-		} catch (SQLException e) {
-			throw new RuntimeException("Could not connect to database", e);
-		}
+	public EventDatabaseLoader(String databaseUrl) throws SQLException {
+		logger.info("Creating connection to database");
+		connection = DriverManager.getConnection(databaseUrl);
+		logger.info("Connection established");
+		connection.createStatement().execute(
+				"create table if not exists events (" +
+						"id varchar(255) primary key," +
+						"duration integer," +
+						"type varchar(255)," +
+						"host varchar(255)," +
+						"alert boolean" +
+						")"
+		);
+		logger.info("Table events created (if not existed)");
 	}
 
 	public void load(Event event) {
 		logger.debug("Inserting event: {}", event);
 		long eventDuration = event.getEndTime() - event.getStartTime();
-		try (PreparedStatement statement = connection.prepareStatement("insert into events(?,?,?)")) {
+		try (PreparedStatement statement = connection.prepareStatement("insert into events values (?,?,?,?,?)")) {
 			statement.setString(1, event.getId());
 			statement.setLong(2, eventDuration);
 			statement.setString(3, event.getType());
@@ -43,5 +49,6 @@ public class EventDatabaseLoader implements AutoCloseable {
 	@Override
 	public void close() throws SQLException {
 		connection.close();
+		logger.info("Connection closed");
 	}
 }
