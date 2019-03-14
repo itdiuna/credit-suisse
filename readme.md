@@ -1,7 +1,7 @@
 To build a package:
 
 ```
-./gradlew build
+./gradlew jar
 ```
 
 To run the package:
@@ -11,6 +11,19 @@ java -jar build/libs/credit-suisse-all-1.0-SNAPSHOT.jar src/test/resources/origi
 ```
 
 where the last argument can be replaced with other log file.
+
+
+To test the package:
+
+```
+./gradlew test
+```
+
+To clean the build:
+
+```
+./gradlew clean
+```
 
 
 To do:
